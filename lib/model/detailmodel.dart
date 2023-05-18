@@ -6,13 +6,15 @@ class DetailItemModel {
   final double price;
   final String description;
   final String unit;
+  final int quantity;
 
   DetailItemModel({required this.unit, required this.description,
     required this.id,
     required this.categoriesid,
     required this.image,
     required this.title,
-    required this.price});
+    required this.price,
+    this.quantity = 1});
 
   Map toJson()=> {
     'id': id,

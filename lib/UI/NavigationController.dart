@@ -40,7 +40,7 @@ class _NavigatationControllerState extends State<NavigatationController> {
               BottomNavigationBarItem(icon: Icon(EvaIcons.homeOutline), label: 'Home'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.gridOutline), label: 'Categories'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.heartOutline), label: 'Favorite'),
-              BottomNavigationBarItem(icon: Icon(EvaIcons.shoppingCartOutline), label: 'Cart'),
+              BottomNavigationBarItem(icon: Badge(child: Icon(EvaIcons.shoppingCartOutline)), label: 'Cart'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.person), label: 'Profile'),
             ],
             currentIndex: _currentIndex,

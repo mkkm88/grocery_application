@@ -10,6 +10,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../Util/color_constant.dart';
 import '../../model/img_model.dart';
+import '../../model/item.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -207,7 +208,9 @@ class Home extends StatelessWidget {
                             " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
                             40.widthBox,
                             GestureDetector(
-                                onTap: () {},
+                                onTap : () {
+                                  Item item = Item(name: "", price: 10.99);
+                                },
                                 child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
                           ],
                         )

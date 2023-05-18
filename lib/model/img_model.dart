@@ -35,4 +35,3 @@ final List<imageModel> AuthImages = [
   imageModel(DateTime.now().toString(), 'assets/images/facebook.png', title: "Facebook"),
   imageModel(DateTime.now().toString(), 'assets/images/apple.png', title: "Apple"),
 ];
-final List<imageModel> favoriteItems = [];
