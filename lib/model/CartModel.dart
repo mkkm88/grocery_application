@@ -68,8 +68,7 @@ class CartModel extends ChangeNotifier {
   final List<imageModel> CategoriesImages = [
     imageModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
     imageModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
-    imageModel('c3', 'assets/images/DailyProductImg.jpg',
-        title: "Daily Products"),
+    imageModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
     imageModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
     imageModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
     imageModel('c6', 'assets/images/FruitCircularImg.jpg', title: "Fruits"),
@@ -83,8 +82,7 @@ class CartModel extends ChangeNotifier {
   final List<imageModel> CircularImages = [
     imageModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
     imageModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
-    imageModel('c3', 'assets/images/DailyProductImg.jpg',
-        title: "Daily Products"),
+    imageModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
     imageModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
     imageModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
   ];
@@ -201,4 +199,7 @@ class CartModel extends ChangeNotifier {
         title: 'Tindora',
         price: 10.69),
   ];
+
+ final List<DetailItemModel> cartItems = [];
+
 }

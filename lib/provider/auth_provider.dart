@@ -58,7 +58,6 @@ signInWithGoogle(BuildContext context) async {
       final credential = GoogleAuthProvider.credential(
           accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
       FirebaseAuth.instance.signInWithCredential(credential).then((value) {
-
       Navigator.pop(context);
       });
       // await FirebaseFirestore.instance.collection('users').add({

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/Home/widget.dart';
 import 'package:grocery_application/UI/product.dart';
 import 'package:grocery_application/model/CartModel.dart';
+import 'package:grocery_application/model/detailmodel.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -35,7 +36,7 @@ class Home extends StatelessWidget {
                       )),
                   authProv.currentAddress != null ? Text(
                     '${authProv.currentAddress}',
-                    style: TextStyle(fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontWeight: FontWeight.w500),
                   ) : const Text('Tap to get location!',style: TextStyle(fontWeight: FontWeight.w500)),
                   const Spacer(),
                   IconButton(
@@ -205,7 +206,9 @@ class Home extends StatelessWidget {
                                 .pOnly(left: 8),
                             " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
                             40.widthBox,
-                            Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400)
+                            GestureDetector(
+                                onTap: () {},
+                                child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
                           ],
                         )
                       ],
