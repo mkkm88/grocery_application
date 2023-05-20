@@ -8,14 +8,14 @@ import 'package:grocery_application/Util/color_constant.dart';
 
 import 'Home/Home.dart';
 
-class NavigatationController extends StatefulWidget {
-  const NavigatationController({Key? key}) : super(key: key);
+class NavigationController extends StatefulWidget {
+  const NavigationController({Key? key}) : super(key: key);
 
   @override
-  State<NavigatationController> createState() => _NavigatationControllerState();
+  State<NavigationController> createState() => _NavigationControllerState();
 }
 
-class _NavigatationControllerState extends State<NavigatationController> {
+class _NavigationControllerState extends State<NavigationController> {
   int _currentIndex = 0;
   final List _pages = [
     const Home(),
@@ -40,7 +40,7 @@ class _NavigatationControllerState extends State<NavigatationController> {
               BottomNavigationBarItem(icon: Icon(EvaIcons.homeOutline), label: 'Home'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.gridOutline), label: 'Categories'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.heartOutline), label: 'Favorite'),
-              BottomNavigationBarItem(icon: Badge(child: Icon(EvaIcons.shoppingCartOutline)), label: 'Cart'),
+              BottomNavigationBarItem(icon: Icon(EvaIcons.shoppingCartOutline), label: 'Cart'),
               BottomNavigationBarItem(icon: Icon(EvaIcons.person), label: 'Profile'),
             ],
             currentIndex: _currentIndex,

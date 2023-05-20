@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/product.dart';
-import 'package:grocery_application/UI/NavigationController.dart';
+import 'package:grocery_application/UI/navigation_controller.dart';
 import 'package:grocery_application/UI/pages/auth_page.dart';
 import 'package:grocery_application/UI/product_detail.dart';
 import 'package:grocery_application/UI/profile_page.dart';
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           '/login_page': (context) => LoginPage(),
           '/signup_page': (context) => SignUp(),
           '/start_page': (context) => const StartPage(),
-          '/home_page': (context) => const NavigatationController(),
+          '/home_page': (context) => const NavigationController(),
           ProductPage.routename: (_) => ProductPage(),
           ProductDeatailPage.routename: (_)=>ProductDeatailPage()
         },

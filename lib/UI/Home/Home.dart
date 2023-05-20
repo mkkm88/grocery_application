@@ -1,16 +1,13 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_application/UI/Home/widget.dart';
 import 'package:grocery_application/UI/product.dart';
 import 'package:grocery_application/model/CartModel.dart';
-import 'package:grocery_application/model/detailmodel.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../Util/color_constant.dart';
 import '../../model/img_model.dart';
-import '../../model/item.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -52,7 +49,7 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
               child: TextField(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchBar()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SearchBar()));
                 },
                 keyboardType: TextInputType.none,
                 readOnly: true,
@@ -208,9 +205,7 @@ class Home extends StatelessWidget {
                             " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
                             40.widthBox,
                             GestureDetector(
-                                onTap : () {
-                                  Item item = Item(name: "", price: 10.99);
-                                },
+                                onTap : () {},
                                 child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
                           ],
                         )
