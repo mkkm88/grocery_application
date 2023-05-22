@@ -1,8 +1,8 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_application/UI/cart_page.dart';
 import 'package:grocery_application/UI/categories_page.dart';
 import 'package:grocery_application/UI/favorite_page.dart';
+import 'package:grocery_application/UI/pages/cart_page.dart';
 import 'package:grocery_application/UI/profile_page.dart';
 import 'package:grocery_application/Util/color_constant.dart';
 

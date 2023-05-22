@@ -55,9 +55,9 @@ dependencies:
   geocoding:
   badges:
   dropdown_search:
-  shared_preferences: ^2.1.1
-  path_provider: ^2.0.15
-  sqflite: ^2.2.8+4
+  shared_preferences:
+  path_provider:
+  sqflite:
 
 dev_dependencies:
   flutter_test:

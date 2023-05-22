@@ -5,7 +5,6 @@ import 'package:geolocator/geolocator.dart';
 
 import 'detailmodel.dart';
 import 'img_model.dart';
-import 'item.dart';
 
 class CartModel extends ChangeNotifier {
   int current = 0;

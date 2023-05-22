@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthProvider()),
-        ChangeNotifierProvider(create: (_) => CartModel())
+        ChangeNotifierProvider(create: (_) => CartModel()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -37,8 +37,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/profile_page': (context) => ProfilePage(),
           '/welcome_page': (context) => const WelcomePage(),
-          '/login_page': (context) => LoginPage(),
-          '/signup_page': (context) => SignUp(),
+          '/login_page': (context) => const LoginPage(),
+          '/signup_page': (context) => const SignUp(),
           '/start_page': (context) => const StartPage(),
           '/home_page': (context) => const NavigationController(),
           ProductPage.routename: (_) => ProductPage(),

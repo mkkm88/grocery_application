@@ -204,9 +204,7 @@ class Home extends StatelessWidget {
                                 .pOnly(left: 8),
                             " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
                             40.widthBox,
-                            GestureDetector(
-                                onTap : () {},
-                                child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
+                            Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400)
                           ],
                         )
                       ],
