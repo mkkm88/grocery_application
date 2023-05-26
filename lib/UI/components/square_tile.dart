@@ -31,15 +31,19 @@ Widget RectangleButton({required Function onTap, required String iconPath, requi
           border: Border.all(color: Colors.grey, width: 2),
           borderRadius: BorderRadius.circular(13),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Image.asset(iconPath,
-                height: 30),
-            Text(name,
-              style: TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.only(left: 24.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Image.asset(iconPath,
+                  height: 30),
+              const SizedBox(width: 32,),
+              Text(name,
+                style: const TextStyle(color: Colors.black, fontSize: 17, fontWeight: FontWeight.w500, fontFamily: 'Poppins'),
+              ),
+            ],
+          ),
         ),
       ),
     ),

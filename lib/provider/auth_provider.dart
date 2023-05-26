@@ -110,6 +110,14 @@ signInWithGoogle(BuildContext context) async {
     ));
   }
 
+  signWithApple(BuildContext context) {
+    showDialog(context: context, builder: (_)=>AlertDialog(
+      content: const Text("This Feature is temporary disabled"),
+      title: const Text("Temporary disabled"),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+    ));
+  }
+
   // error message to user
   void showErrorMessage(String message, BuildContext context) {
     showDialog(

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/components/my_button.dart';
 import 'package:grocery_application/UI/components/my_textfield.dart';
@@ -44,13 +43,11 @@ class LoginPage extends StatelessWidget {
                 MyTextField(
                   controller: authProv.emailController,
                   hintText: 'E-mail address',
-                  obscureText: false,
                 ),
                 const SizedBox(height: 10),
                 MyTextField(
                   controller: authProv.passController,
                   hintText: 'Password',
-                  obscureText: true,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 15, left: 13, right: 25),
@@ -114,17 +111,17 @@ class LoginPage extends StatelessWidget {
                         onTap: () async {
                           await authProv.signInWithGoogle(context).then((e){
                             Navigator.push(context,
-                                MaterialPageRoute(builder: (_) => AuthPage()));
+                                MaterialPageRoute(builder: (_) => const AuthPage()));
                           });
                         },
                         imagePath: 'assets/images/google.png'),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     SquareTile(
                         onTap: () async{
                           await authProv.signWithFacebook(context);
                         },
                         imagePath: 'assets/images/facebook.png'),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                   ],
                 ),
                 const SizedBox(height: 90),

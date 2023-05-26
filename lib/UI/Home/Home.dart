@@ -1,5 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_application/UI/Home/search_bar.dart';
+import 'package:grocery_application/UI/favorite_page.dart';
 import 'package:grocery_application/UI/product.dart';
 import 'package:grocery_application/model/CartModel.dart';
 import 'package:intl/intl.dart';
@@ -8,6 +10,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../Util/color_constant.dart';
 import '../../model/img_model.dart';
+import '../cart_page.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -49,7 +52,7 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
               child: TextField(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const SearchBar()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
                 },
                 keyboardType: TextInputType.none,
                 readOnly: true,
@@ -62,7 +65,7 @@ class Home extends StatelessWidget {
                     color: Color(0xFF818181),
                     size: 23,
                   ),
-                  fillColor: const Color(0xFFF5F5F5),
+                  fillColor: const Color(0xFFe6e6e6),
                   filled: true,
                   enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide.none,
@@ -181,7 +184,9 @@ class Home extends StatelessWidget {
                                   fit: BoxFit.cover),
                             ),
                             GestureDetector(
-                              onTap: (){},
+                              onTap: (){
+                                Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavoritePage()));
+                              },
                               child: const Icon(
                                 Icons.favorite_border_rounded,
                               ),
@@ -204,7 +209,11 @@ class Home extends StatelessWidget {
                                 .pOnly(left: 8),
                             " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
                             40.widthBox,
-                            Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400)
+                            GestureDetector(
+                              onTap : () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CartPage()));
+                              },
+                                child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
                           ],
                         )
                       ],

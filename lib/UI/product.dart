@@ -4,14 +4,15 @@ import 'package:grocery_application/UI/product_detail.dart';
 import 'package:grocery_application/model/CartModel.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:velocity_x/velocity_x.dart';
 
 import '../Util/color_constant.dart';
-import '../model/img_model.dart';
-import 'Home/widget.dart';
+import 'cart_page.dart';
+import 'favorite_page.dart';
 
 class ProductPage extends StatelessWidget {
   static const routename = '/categorydetailpages';
+
+  const ProductPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class ProductPage extends StatelessWidget {
                   color: Color(0xFF818181),
                   size: 23,
                 ),
-                fillColor: const Color(0xFFF5F5F5),
+                fillColor: const Color(0xFFe6e6e6),
                 filled: true,
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide.none,
@@ -59,7 +60,7 @@ class ProductPage extends StatelessWidget {
                 itemBuilder: (_, i) {
                   return GestureDetector(
                     onTap: (){
-                      Navigator.of(context).pushNamed(ProductDeatailPage.routename,arguments: {
+                      Navigator.of(context).pushNamed(ProductDetailPage.routename,arguments: {
                         'title': detailid[i].title,
                         'image': detailid[i].image,
                         'price': detailid[i].price,
@@ -69,7 +70,7 @@ class ProductPage extends StatelessWidget {
                       });
                     },
                     child: Container(
-                      margin: EdgeInsets.all(10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(width: 1, color: Colors.grey.shade200),
@@ -94,7 +95,9 @@ class ProductPage extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.all(8.0),
                                 child: GestureDetector(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavoritePage()));
+                                  },
                                   child: const Icon(
                                     Icons.favorite_border_rounded,
                                   ),
@@ -103,16 +106,16 @@ class ProductPage extends StatelessWidget {
                             ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 8, top: 8),
+                            padding: const EdgeInsets.only(left: 8, top: 8),
                             child: Text(
                               detailid[i].title,
-                              style: TextStyle(fontWeight: FontWeight.w600),
+                              style: const TextStyle(fontWeight: FontWeight.w600),
                             ),
                           ),
                           Row(
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: 9),
+                                padding: const EdgeInsets.only(left: 9),
                                 child: Text(
                                   NumberFormat.simpleCurrency()
                                       .format(detailid[i].price),
@@ -123,15 +126,17 @@ class ProductPage extends StatelessWidget {
                               ),
                               Text(
                                 "${detailid[i].unit}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.grey,
                                     fontWeight: FontWeight.w400),
                               ),
-                              Spacer(),
+                              const Spacer(),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CartPage()));
+                                },
                                 child: Padding(
-                                  padding: EdgeInsets.only(right: 8),
+                                  padding: const EdgeInsets.only(right: 8),
                                   child: Icon(Icons.add_circle_rounded,
                                       color: ColorConstant.tealA400),
                                 ),

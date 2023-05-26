@@ -6,7 +6,15 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery
+        .of(context)
+        .size;
 
+    final List<String> splashImages = [
+      'assets/images/front.png',
+      'assets/images/front.png',
+      'assets/images/front.png',
+    ];
     return Scaffold(
       body: Center(
         child: Column(
@@ -18,7 +26,7 @@ class WelcomePage extends StatelessWidget {
                 width: 360,
                 height: 360,
                 color: Colors.transparent,
-                child: Image.asset("assets/images/img.jpg"),
+                child: Image.asset("assets/images/front.png"),
               ),
             ),
             const SizedBox(height: 24),
@@ -33,19 +41,31 @@ class WelcomePage extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(color: Colors.black54, fontSize: 15, fontFamily: 'Poppins'),
             ),
-            const SizedBox(height: 80),
+            const SizedBox(height: 80,),
             MyButton(
               text: 'Next',
               onTap: () {
-                Navigator.pushNamed(context, '/signup_page');
+                Navigator.pushNamed(context, '/splash_screen');
               },
             ),
             const SizedBox(height: 10),
-            MyButton(
-              text: 'Skip',
+            GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, '/signup_page');
               },
+              child: Container(
+                padding: const EdgeInsets.all(15),
+                width: size.width * 0.8,
+                decoration: BoxDecoration(
+                  color: const Color(0XFFD9D9D9),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: const Center(
+                  child: Text('Skip',
+                      style: TextStyle(color: Colors.black, fontSize: 15, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
+                  ),
+                ),
+              ),
             ),
           ],
         ),

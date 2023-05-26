@@ -26,7 +26,7 @@ class CartModel extends ChangeNotifier {
         .then((List<Placemark> placemark) {
       Placemark place = placemark[0];
       currentAddress =
-      '${place.street}, ${place.subLocality}\n${place.subAdministrativeArea}, ${place.postalCode}';
+      '${place.locality}, ${place.street}, ${place.subLocality}\n${place.administrativeArea}, ${place.postalCode}';
       notifyListeners();
     });
   }

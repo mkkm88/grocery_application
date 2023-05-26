@@ -50,6 +50,12 @@ class SignUp extends StatelessWidget {
                   },
                   iconPath: "assets/images/facebook.png",
                   name: "Connect with Facebook"),
+              const SizedBox(height: 15,),
+              RectangleButton(onTap: () async {
+                await authProv.signWithApple(context);
+              },
+                  iconPath: "assets/images/apple-logo.png",
+                  name: "Connect with Apple"),
               const SizedBox(height: 40),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
