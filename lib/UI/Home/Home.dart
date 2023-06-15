@@ -12,9 +12,14 @@ import '../../Util/color_constant.dart';
 import '../../model/img_model.dart';
 import '../cart_page.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final authProv = Provider.of<CartModel>(context);
@@ -40,11 +45,17 @@ class Home extends StatelessWidget {
                     style: const TextStyle(fontWeight: FontWeight.w500),
                   ) : const Text('Tap to get location!',style: TextStyle(fontWeight: FontWeight.w500)),
                   const Spacer(),
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        EvaIcons.bellOutline,
-                      )),
+                  Badge(
+                    backgroundColor: Colors.green,
+                    isLabelVisible: true,
+                    alignment: Alignment.topCenter,
+                    label: const Text('3'),
+                    child: IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          EvaIcons.bellOutline,
+                        )),
+                  ),
                 ],
               ),
             ),
@@ -52,7 +63,7 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
               child: TextField(
                 onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => Search()));
+                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Search()));
                 },
                 keyboardType: TextInputType.none,
                 readOnly: true,

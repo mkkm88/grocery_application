@@ -1,16 +1,15 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:grocery_application/UI/components/my_button.dart';
+import 'package:grocery_application/UI/pages/signup_page.dart';
 import 'package:grocery_application/Util/color_constant.dart';
 import 'package:grocery_application/provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +25,8 @@ class ProfilePage extends StatelessWidget {
                     backgroundImage: NetworkImage("${authProv.user?.photoURL}"),
                     radius: 40,
                   ),
-                  SizedBox(
-                    width: 20,
+                  const SizedBox(
+                    width: 10,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,11 +71,12 @@ class ProfilePage extends StatelessWidget {
                 const Icon(Icons.help_outline_rounded, size: 35), 'Help'),
             CustomTile(
                 context, const Icon(Icons.info_outlined, size: 35), 'About'),
-            Divider(thickness: 2),
-            Spacer(),
+            const Divider(thickness: 2),
+            const Spacer(),
             CustomButton(onTap: (){
               FirebaseAuth.instance.signOut();
               GoogleSignIn().signOut();
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SignUp()));
             })
           ],
         );
@@ -88,24 +88,24 @@ class ProfilePage extends StatelessWidget {
 Widget CustomTile(BuildContext context, Widget child, String title) {
   return Column(
     children: [
-      Divider(
+      const Divider(
         thickness: 2,
       ),
       Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Row(
           children: [
             child,
-            SizedBox(width: 15),
+            const SizedBox(width: 15),
             Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Spacer(),
-            Icon(
+            const Spacer(),
+            const Icon(
               Icons.chevron_right_outlined,
               size: 35,
             ),
@@ -120,15 +120,15 @@ Widget CustomButton({required Function onTap}) {
   return GestureDetector(
     onTap: ()=>onTap(),
     child: Container(
-      margin: EdgeInsets.only(bottom: 25),
-      padding: EdgeInsets.all(20),
+      margin: const EdgeInsets.only(bottom: 25),
+      padding: const EdgeInsets.all(20),
       width: 350,
       height: 70,
       decoration: BoxDecoration(
-          color: Color(0xFFF2F3F2), borderRadius: BorderRadius.circular(20)),
-      child: Row(
+          color: const Color(0xFFF2F3F2), borderRadius: BorderRadius.circular(20)),
+      child: const Row(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Icon(
             Icons.logout,
             color: Colors.green,

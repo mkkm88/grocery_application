@@ -53,11 +53,13 @@ dependencies:
   smooth_page_indicator:
   geolocator:
   geocoding:
-  badges:
   dropdown_search:
   shared_preferences:
   path_provider:
   sqflite:
+  flutter_otp_text_field:
+  email_auth:
+  badges: ^3.1.1
 
 dev_dependencies:
   flutter_test:
@@ -83,8 +85,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/images/
-     - assets/icons/
+    - assets/images/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

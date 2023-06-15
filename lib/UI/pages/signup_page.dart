@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/components/my_button.dart';
 import 'package:grocery_application/UI/components/square_tile.dart';
+// ignore: unused_import
 import 'package:grocery_application/UI/pages/auth_page.dart';
+import 'package:grocery_application/UI/pages/start_page.dart';
 import 'package:grocery_application/provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -40,6 +42,7 @@ class SignUp extends StatelessWidget {
               RectangleButton(
                   onTap: () async {
                     await authProv.signInWithGoogle(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()));
                   },
                   iconPath: "assets/images/google.png",
                   name: "Connect with Google"),

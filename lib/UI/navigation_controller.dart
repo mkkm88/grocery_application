@@ -22,7 +22,7 @@ class _NavigationControllerState extends State<NavigationController> {
     const CategoriesPage(),
     const FavoritePage(),
     const CartPage(),
-    ProfilePage(),
+    const ProfilePage(),
   ];
 
   @override

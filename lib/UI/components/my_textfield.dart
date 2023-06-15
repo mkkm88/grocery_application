@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MyTextField extends StatefulWidget {
-  final controller;
+  final TextEditingController controller;
+  final bool obscureText;
   final String hintText;
 
   const MyTextField({
     super.key,
     required this.controller,
+    this.obscureText = true,
     required this.hintText,
   });
 
@@ -15,15 +17,15 @@ class MyTextField extends StatefulWidget {
 }
 
 class _MyTextFieldState extends State<MyTextField> {
-  bool _obSecureText = true;
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25.0),
       child: TextField(
-        obscureText: _obSecureText,
         cursorColor: Colors.black54,
+        obscureText: _obscureText,
         controller: widget.controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
@@ -42,11 +44,12 @@ class _MyTextFieldState extends State<MyTextField> {
           suffixIcon: GestureDetector(
             onTap: () {
               setState(() {
-                _obSecureText = !_obSecureText;
+                _obscureText =! _obscureText;
               });
             },
             child: Icon(
-              _obSecureText ? Icons.visibility : Icons.visibility_off,
+              _obscureText ? Icons.visibility_off : Icons.visibility,
+              color: Colors.black,
             ),
           )
         ),

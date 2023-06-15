@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/product.dart';
 import 'package:grocery_application/Util/color_constant.dart';
 import 'package:grocery_application/model/CartModel.dart';
-import 'package:grocery_application/model/img_model.dart';
 import 'package:provider/provider.dart';
 import 'package:velocity_x/velocity_x.dart';
 

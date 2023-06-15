@@ -1,5 +1,3 @@
-import 'detailmodel.dart';
-
 class imageModel{
   String id;
   String img;

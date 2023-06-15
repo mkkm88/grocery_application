@@ -1,12 +1,8 @@
 import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:grocery_application/UI/pages/auth_page.dart';
+import 'package:grocery_application/UI/pages/start_page.dart';
 
 class AuthProvider extends ChangeNotifier {
   final emailController = TextEditingController();
@@ -52,14 +48,15 @@ signInWithGoogle(BuildContext context) async {
         },
       );
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-      final GoogleSignInAuthentication googleAuth =
-      await googleUser!.authentication;
-      final credential = GoogleAuthProvider.credential(
-          accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
-      FirebaseAuth.instance.signInWithCredential(credential).then((value) {
-      Navigator.pop(context);
-      });
+      if(googleUser != null) {
+        final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+        final credential = GoogleAuthProvider.credential(
+            accessToken: googleAuth.accessToken, idToken: googleAuth.idToken,
+        );
+        FirebaseAuth.instance.signInWithCredential(credential);
+        Navigator.pop(context);
+      }
       // await FirebaseFirestore.instance.collection('users').add({
       //   'Google-Email': GoogleSignIn().currentUser?.email,
       //   'Google-Image-Url': GoogleSignIn().currentUser?.photoUrl,

@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:grocery_application/UI/ForgotPasswordScreens/forgot_password.dart';
+import 'package:grocery_application/UI/ForgotPasswordScreens/new_password.dart';
+import 'package:grocery_application/UI/ForgotPasswordScreens/verify_email.dart';
 import 'package:grocery_application/UI/cart_page.dart';
 import 'package:grocery_application/UI/favorite_page.dart';
 import 'package:grocery_application/UI/product.dart';
@@ -37,7 +40,7 @@ class MyApp extends StatelessWidget {
         theme: getTheme(context),
         home: const AuthPage(),
         routes: {
-          '/profile_page': (context) => ProfilePage(),
+          '/profile_page': (context) => const ProfilePage(),
           '/welcome_page': (context) => const WelcomePage(),
           '/login_page': (context) => const LoginPage(),
           '/signup_page': (context) => const SignUp(),
@@ -45,6 +48,9 @@ class MyApp extends StatelessWidget {
           '/home_page': (context) => const NavigationController(),
           '/cart_page' : (context) => const CartPage(),
           '/favorite_page' : (context) => const FavoritePage(),
+          '/forgot_password' : (context) => const ForgotPassword(),
+          '/verify_email' : (context) => const VerifyEmail(),
+          '/new_password' : (context) => const NewPassword(),
           ProductPage.routename: (_) => const ProductPage(),
           ProductDetailPage.routename: (_)=> const ProductDetailPage()
         },
