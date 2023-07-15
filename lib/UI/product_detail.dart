@@ -24,7 +24,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    final authProv = Provider.of<CartModel>(context);
+    final authProv = Provider.of<HomeProvider>(context);
     final Args =
     ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     final title = Args['title'];
@@ -116,7 +116,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       borderRadius: BorderRadius.circular(14),
                       color: ColorConstant.tealA400,
                       shape: BoxShape.rectangle),
-                  child: Consumer<CartModel>(builder: (_, auth, child) {
+                  child: Consumer<HomeProvider>(builder: (_, auth, child) {
                     return Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

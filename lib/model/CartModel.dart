@@ -6,7 +6,7 @@ import 'package:geolocator/geolocator.dart';
 import 'detailmodel.dart';
 import 'img_model.dart';
 
-class CartModel extends ChangeNotifier {
+class HomeProvider extends ChangeNotifier {
   int current = 0;
   int currentIndex = 0;
   Position? currentPosition;
@@ -65,26 +65,26 @@ class CartModel extends ChangeNotifier {
             (element) => element.categoriesid.contains(id)).toList();
   }
 
-  final List<imageModel> CategoriesImages = [
-    imageModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
-    imageModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
-    imageModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
-    imageModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
-    imageModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
-    imageModel('c6', 'assets/images/FruitCircularImg.jpg', title: "Fruits"),
-    imageModel('c7', 'assets/images/IcecreamImg.jpg', title: "Ice Creams"),
-    imageModel('c8', 'assets/images/JamsImg.jpg', title: "Jams"),
-    imageModel('c9', 'assets/images/MeatImg.jpg', title: "Meat"),
-    imageModel('c10', 'assets/images/SweetsImg.jpg', title: "Sweets"),
-    imageModel('c11', 'assets/images/VegetablesImg.jpg', title: "Vegetables"),
+  final List<ProductModel> CategoriesImages = [
+    ProductModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
+    ProductModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
+    ProductModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
+    ProductModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
+    ProductModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
+    ProductModel('c6', 'assets/images/FruitCircularImg.jpg', title: "Fruits"),
+    ProductModel('c7', 'assets/images/IcecreamImg.jpg', title: "Ice Creams"),
+    ProductModel('c8', 'assets/images/JamsImg.jpg', title: "Jams"),
+    ProductModel('c9', 'assets/images/MeatImg.jpg', title: "Meat"),
+    ProductModel('c10', 'assets/images/SweetsImg.jpg', title: "Sweets"),
+    ProductModel('c11', 'assets/images/VegetablesImg.jpg', title: "Vegetables"),
   ];
 
-  final List<imageModel> CircularImages = [
-    imageModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
-    imageModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
-    imageModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
-    imageModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
-    imageModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
+  final List<ProductModel> CircularImages = [
+    ProductModel('c1', 'assets/images/ChickenImg.jpg', title: "Chicken"),
+    ProductModel('c2', 'assets/images/ChocolateImg.jpg', title: "Chocolate"),
+    ProductModel('c3', 'assets/images/DailyProductImg.jpg', title: "Daily Products"),
+    ProductModel('c4', 'assets/images/DrinksImg.jpg', title: "Drinks"),
+    ProductModel('c5', 'assets/images/FishImg.jpg', title: "Fish"),
   ];
 
   final List<DetailItemModel> CategoryDetailItemDb = [

@@ -10,7 +10,7 @@ class CategoriesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProv = Provider.of<CartModel>(context);
+    final authProv = Provider.of<HomeProvider>(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Categories'),),
       body: GridView.builder(

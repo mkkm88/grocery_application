@@ -1,6 +1,7 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_application/UI/Home/search_bar.dart';
+import 'package:grocery_application/UI/components/test/data.dart';
 import 'package:grocery_application/UI/favorite_page.dart';
 import 'package:grocery_application/UI/product.dart';
 import 'package:grocery_application/model/CartModel.dart';
@@ -22,7 +23,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    final authProv = Provider.of<CartModel>(context);
+    final authProv = Provider.of<HomeProvider>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -40,10 +41,13 @@ class _HomeState extends State<Home> {
                         Icons.location_on_rounded,
                         color: Color(0xFFF8740F),
                       )),
-                  authProv.currentAddress != null ? Text(
-                    '${authProv.currentAddress}',
-                    style: const TextStyle(fontWeight: FontWeight.w500),
-                  ) : const Text('Tap to get location!',style: TextStyle(fontWeight: FontWeight.w500)),
+                  authProv.currentAddress != null
+                      ? Text(
+                          '${authProv.currentAddress}',
+                          style: const TextStyle(fontWeight: FontWeight.w500),
+                        )
+                      : const Text('Tap to get location!',
+                          style: TextStyle(fontWeight: FontWeight.w500)),
                   const Spacer(),
                   Badge(
                     backgroundColor: Colors.green,
@@ -62,8 +66,9 @@ class _HomeState extends State<Home> {
             Padding(
               padding: const EdgeInsets.only(left: 22, right: 22, top: 15),
               child: TextField(
-                onTap: (){
-                  Navigator.of(context).push(MaterialPageRoute(builder: (_) => const Search()));
+                onTap: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (_) => const Search()));
                 },
                 keyboardType: TextInputType.none,
                 readOnly: true,
@@ -107,7 +112,7 @@ class _HomeState extends State<Home> {
                         .box
                         .size(100, 70)
                         .margin(const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 15))
+                            horizontal: 24, vertical: 15))
                         .color(Colors.transparent)
                         .make()
                   ],
@@ -117,11 +122,8 @@ class _HomeState extends State<Home> {
             40.heightBox,
             Padding(
               padding: const EdgeInsets.only(left: 15),
-              child: "Categories"
-                  .text
-                  .fontWeight(FontWeight.w600)
-                  .size(20)
-                  .make(),
+              child:
+                  "Categories".text.fontWeight(FontWeight.w600).size(20).make(),
             ),
             20.heightBox,
             SingleChildScrollView(
@@ -133,8 +135,9 @@ class _HomeState extends State<Home> {
                     child: Column(
                       children: [
                         GestureDetector(
-                          onTap: (){
-                            Navigator.of(context).pushNamed(ProductPage.routename,arguments: {
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushNamed(ProductPage.routename, arguments: {
                               'title': index.title,
                               'id': index.id
                             });
@@ -174,12 +177,12 @@ class _HomeState extends State<Home> {
               ),
             ),
             30.heightBox,
-            Container(
+            SizedBox(
               height: 200,
               width: double.infinity,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: fruitsCategoriesImages.length,
+                  itemCount: fruits.length,
                   itemBuilder: (ctx, i) {
                     return Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -187,45 +190,117 @@ class _HomeState extends State<Home> {
                         Stack(
                           alignment: Alignment.topRight,
                           children: [
-                            Container(
+                            SizedBox(
                               height: 135,
                               width: 150,
-                              child: Image.asset(
-                                  fruitsCategoriesImages[i].img,
-                                  fit: BoxFit.cover),
+                              child:
+                                  Image.asset(fruits[i].img, fit: BoxFit.cover),
                             ),
                             GestureDetector(
-                              onTap: (){
-                                Navigator.of(context).push(MaterialPageRoute(builder: (_) => const FavoritePage()));
+                              onTap: () {
+                                if (favorites.contains(fruits[i])) {
+                                  favorites.remove(fruits[i]);
+                                } else {
+                                  favorites.add(fruits[i]);
+                                }
+                                setState(() {});
                               },
-                              child: const Icon(
-                                Icons.favorite_border_rounded,
+                              child: Icon(
+                                favorites.contains(fruits[i])
+                                    ? Icons.favorite
+                                    : Icons.favorite_border_rounded,
                               ),
                             ).box.make().p8()
                           ],
                         ),
-                        fruitsCategoriesImages[i]
+                        fruits[i]
                             .title!
                             .text
                             .fontWeight(FontWeight.w600)
                             .make()
                             .p(8),
-                        Row(
-                          children: [
-                            NumberFormat.simpleCurrency().format(fruitsCategoriesImages[i].price)
-                                .text
-                                .color(Colors.orange)
-                                .fontWeight(FontWeight.w600)
-                                .make()
-                                .pOnly(left: 8),
-                            " / kg".text.fontWeight(FontWeight.w400).color(Colors.grey).make(),
-                            40.widthBox,
-                            GestureDetector(
-                              onTap : () {
-                                Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CartPage()));
-                              },
-                                child: Icon(Icons.add_circle_rounded,color: ColorConstant.tealA400))
-                          ],
+                        SizedBox(
+                          width: 140,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              NumberFormat.simpleCurrency()
+                                  .format(fruits[i].price)
+                                  .text
+                                  .color(Colors.orange)
+                                  .fontWeight(FontWeight.w600)
+                                  .maxFontSize(12)
+                                  .make()
+                                  .pOnly(left: 8),
+                              " / kg"
+                                  .text
+                                  .fontWeight(FontWeight.w400)
+                                  .maxFontSize(12)
+                                  .color(Colors.grey)
+                                  .make(),
+                              const Spacer(),
+                              GestureDetector(
+                                  onTap: () {
+                                    if (cart.contains(fruits[i])) {
+                                      cart.remove(fruits[i]);
+                                    } else {
+                                      cart.add(fruits[i]);
+                                    }
+                                    setState(() {});
+                                  },
+                                  child: cartMap.containsKey(fruits[i].id)
+                                      ? Container(
+                                          width: 50,
+                                          height: 20,
+                                          decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(20)),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceAround,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  cartMap[fruits[i]]!
+                                                      .multiplier += 1;
+                                                  setState(() {});
+                                                },
+                                                child: const Icon(
+                                                  Icons.remove,
+                                                  size: 16,
+                                                ),
+                                              ),
+                                              Text(cartMap[fruits[i].id]!
+                                                  .multiplier
+                                                  .toString()),
+                                              InkWell(
+                                                onTap: () {
+                                                  cartMap[fruits[i]]!
+                                                      .multiplier += 1;
+                                                  setState(() {});
+                                                },
+                                                child: const Icon(
+                                                  Icons.add,
+                                                  size: 16,
+                                                  color: Colors.white,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                      : InkWell(
+                                          onTap: () {
+                                            cartMap[fruits[i].id] =
+                                                CartModel.fromProduct(
+                                                    fruits[i]);
+                                            setState(() {});
+                                          },
+                                          child: Icon(Icons.add_circle_rounded,
+                                              color: ColorConstant.tealA400),
+                                        ))
+                            ],
+                          ),
                         )
                       ],
                     )
@@ -236,7 +311,7 @@ class _HomeState extends State<Home> {
                         .margin(const EdgeInsets.symmetric(horizontal: 10))
                         .make();
                   }),
-            )
+            ),
           ],
         ),
       ),

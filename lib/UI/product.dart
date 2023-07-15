@@ -16,7 +16,7 @@ class ProductPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProv = Provider.of<CartModel>(context);
+    final authProv = Provider.of<HomeProvider>(context);
     final Args =
     ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
     final title = Args['title'] as String;

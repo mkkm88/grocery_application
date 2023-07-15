@@ -21,30 +21,6 @@ class _WelcomePageState extends State<WelcomePage> {
     "assets/images/front.png",
     "assets/images/front.png",
   ];
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   startTimer();
-  // }
-  // void startTimer() {
-  //   Timer(const Duration(seconds: 3), () {
-  //     navigateToNextScreen();
-  //   });
-  // }
-  // void navigateToNextScreen() {
-  //   if(activeIndex == splashImages.length - 1) {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(builder: (context) => const SignUp()),
-  //     );
-  //   } else {
-  //     setState(() {
-  //       activeIndex++;
-  //       startTimer();
-  //     });
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery
